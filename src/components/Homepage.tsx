@@ -1,8 +1,8 @@
-import HalfCommitteeMembers from "@/components/HalfCommitteeMembers";
 import HalfEvent from "@/components/HalfEvent";
 import HalfNews from "@/components/HalfNews";
 import Carousel from "@/components/ImageCarousel";
 import Navbar from "@/components/Navbar";
+import Members from "./Members";
 
 const events = [
   {
@@ -55,7 +55,7 @@ const Homepage = () => {
         <HalfEvent events={events} />
       </div>
       <div className="mt-2 min-w-full">
-        <HalfCommitteeMembers />
+        <Members value="half" />
       </div>
       <div className="mt-8 h-32 w-full bg-blue-200"></div>
     </div>

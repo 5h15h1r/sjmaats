@@ -11,7 +11,6 @@ const Navbar = () => {
     { href: "/members", label: "Members" },
     { href: "/events", label: "Events" },
     { href: "/gallery", label: "Gallery" },
-    
   ];
 
   return (
@@ -99,7 +98,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`absolute left-0 top-11 z-50 w-full overflow-hidden transition-all duration-500 ease-in-out md:hidden ${
+        className={`absolute left-0 top-11 z-50 w-full transition-all duration-500 ease-in-out md:hidden ${
           isMobileMenuOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
@@ -108,7 +107,7 @@ const Navbar = () => {
             <Link
               key={link.href}
               href={link.href}
-              className="block transform rounded-md px-3 py-2 text-base text-white opacity-0 transition-all duration-300 ease-in-out hover:bg-blue-800"
+              className="block transform rounded-md px-1 py-2 text-base text-white opacity-0 transition-all duration-300 ease-in-out hover:bg-blue-800"
               style={{
                 transitionDelay: `${index * 100}ms`,
                 opacity: isMobileMenuOpen ? 1 : 0,
