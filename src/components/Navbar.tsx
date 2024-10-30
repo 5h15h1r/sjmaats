@@ -99,7 +99,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`absolute left-0 top-11 z-50 w-full overflow-hidden transition-all duration-500 ease-in-out md:hidden ${
+        className={`absolute left-0 top-11 z-50 w-full transition-all duration-500 ease-in-out md:hidden ${
           isMobileMenuOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
