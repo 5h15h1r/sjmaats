@@ -1,17 +1,15 @@
-import Navbar from "@/components/Navbar";
+import React from 'react'
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-
-const members = () => {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+  } from "@/components/ui/accordion";
+  
+const CustomAccordion = () => {
   return (
     <div>
-      <Navbar />
-      <div className="flex flex-col">
-      <div className="max-w-6xl">
+        <div className="max-w-6xl">
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
               <AccordionTrigger>Is it accessible?</AccordionTrigger>
@@ -21,9 +19,8 @@ const members = () => {
             </AccordionItem>
           </Accordion>
       </div>
-      </div>
     </div>
-  );
-};
+  )
+}
 
-export default members;
+export default CustomAccordion

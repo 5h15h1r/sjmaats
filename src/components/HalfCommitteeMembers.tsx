@@ -113,7 +113,7 @@ const HalfCommitteeMembers: React.FC = () => {
         </div>
       </div>
       <Link
-        href="/committemembers"
+        href="/committee-members"
         className="mb-11 flex h-16 w-1/2 items-center justify-center rounded-md bg-blue-600 font-bold text-white transition-shadow duration-300 hover:shadow-2xl md:w-1/4"
       >
         View more members
