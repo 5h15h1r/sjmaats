@@ -1,7 +1,8 @@
-import HalfEvent from "./HalfEvent";
-import HalfNews from "./HalfNews";
-import Carousel from "./ImageCarousel";
-import Navbar from "./Navbar";
+import HalfCommitteeMembers from "@/components/HalfCommitteeMembers";
+import HalfEvent from "@/components/HalfEvent";
+import HalfNews from "@/components/HalfNews";
+import Carousel from "@/components/ImageCarousel";
+import Navbar from "@/components/Navbar";
 
 const events = [
   {
@@ -43,7 +44,7 @@ const Homepage = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       <Navbar />
-      <div className="container mx-auto flex flex-col px-4 py-8 md:flex md:flex-row">
+      <div className="min-w-screen container flex flex-col px-4 py-8 md:flex md:flex-row md:justify-center">
         <Carousel />
         <HalfNews
           title="SJMAA"
@@ -53,6 +54,10 @@ const Homepage = () => {
       <div className="mt-3 w-full">
         <HalfEvent events={events} />
       </div>
+      <div className="mt-2 min-w-full">
+        <HalfCommitteeMembers />
+      </div>
+      <div className="mt-8 h-32 w-full bg-blue-200"></div>
     </div>
   );
 };
