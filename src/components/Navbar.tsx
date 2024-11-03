@@ -98,8 +98,10 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`absolute left-0 top-11 z-50 w-full transition-all duration-500 ease-in-out md:hidden ${
-          isMobileMenuOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
+        className={`absolute left-0 top-11 z-10 w-full transition-all duration-500 ease-in-out md:hidden ${
+          isMobileMenuOpen
+            ? "max-h-48 opacity-100"
+            : "pointer-events-none max-h-0 opacity-0"
         }`}
       >
         <div className="space-y-1 bg-blue-900 px-2 pb-3 pt-2">
