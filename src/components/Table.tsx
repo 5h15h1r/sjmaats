@@ -368,7 +368,7 @@ export function Table({ data }: { data: any[] }) {
   };
 
   return (
-    <div className="w-full p-4">
+    <div className="table-wrapper w-full rounded-md border p-4">
       <div className="flex flex-wrap items-center space-y-3 md:space-y-0 md:space-x-4 py-3">
         <Input
           type="search"
