@@ -179,7 +179,7 @@ const Members: React.FC<MembersProps> = ({ value }) => {
       ) : (
         <div>
           <CommitteeMembers />
-        </div>
+        `</div>
       )}
     </div>
   );
