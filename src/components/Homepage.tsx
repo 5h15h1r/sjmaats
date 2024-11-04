@@ -3,6 +3,7 @@ import HalfNews from "@/components/HalfNews";
 import Carousel from "@/components/ImageCarousel";
 import Navbar from "@/components/Navbar";
 import Members from "./Members";
+import MonthlyReminder from "./MonthlyReminder";
 
 const events = [
   {
@@ -54,10 +55,12 @@ const Homepage = () => {
       <div className="mt-3 w-full">
         <HalfEvent events={events} />
       </div>
-      <div className="mt-2 min-w-full">
+      <div className="min-w-screen mt-2">
         <Members value="half" />
       </div>
-      <div className="mt-8 h-32 w-full bg-blue-200"></div>
+      <div className="min-w-screen mt-8 bg-black">
+        <MonthlyReminder />
+      </div>
     </div>
   );
 };

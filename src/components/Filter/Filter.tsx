@@ -1,22 +1,22 @@
-import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuTrigger,
   DropdownMenuLabel,
   DropdownMenuSeparator,
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
   Select,
-  SelectTrigger,
   SelectContent,
-  SelectValue,
   SelectItem,
+  SelectTrigger,
+  SelectValue,
 } from "@/components/ui/select";
 import { FilterInputProps, FilterTag } from "@/types/types";
 import { Filter as FilterIcon } from "lucide-react";
+import React, { useState } from "react";
 
 interface FilterDropdownProps {
   columns: string[];
