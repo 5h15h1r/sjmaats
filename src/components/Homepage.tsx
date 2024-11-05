@@ -2,6 +2,7 @@ import HalfEvent from "@/components/HalfEvent";
 import HalfNews from "@/components/HalfNews";
 import Carousel from "@/components/ImageCarousel";
 import Navbar from "@/components/Navbar";
+import SectionHeading from "@/components/SectionHeading";
 import Members from "./Members";
 import MonthlyReminder from "./MonthlyReminder";
 
@@ -43,23 +44,26 @@ const events = [
 
 const Homepage = () => {
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="flex h-screen flex-col overflow-auto bg-gray-50">
       <Navbar />
-      <div className="min-w-screen container flex flex-col px-4 py-8 md:flex md:flex-row md:justify-center">
+      <div className="container mx-auto flex flex-grow flex-col px-4 py-8 md:flex-row md:justify-center">
         <Carousel />
         <HalfNews
           title="SJMAA"
-          description=" I'll help you convert the JSX to TSX by adding proper TypeScript types and explain the type safety considerations.Let me explain the key type safety considerations and improvements made in this TypeScript version:"
+          description="I'll help you convert the JSX to TSX by adding proper TypeScript types and explain the type safety considerations."
         />
       </div>
+      <SectionHeading title="Events" />
       <div className="mt-3 w-full">
         <HalfEvent events={events} />
       </div>
-      <div className="min-w-screen mt-2">
+      <div className="mt-2 w-full">
+        <SectionHeading title="Members" />
         <Members value="half" />
       </div>
-      <div className="min-w-screen mt-8 bg-black">
-        <MonthlyReminder />
+      <SectionHeading title="Monthly Reminders" />
+      <div className="mt-8 w-full">
+        <MonthlyReminder type="both" />
       </div>
     </div>
   );
