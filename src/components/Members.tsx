@@ -20,19 +20,19 @@ const HalfCommitteeMembers: React.FC = () => {
       name: "XJ RAJKUMAR AGRAWAL",
       batch: "1982 Batch",
       role: "CHAIRMAN",
-      image: "/api/placeholder/80/80",
+      image: "https://github.com/shadcn.png",
     },
     {
       name: "XJ PUNEET AGRAWAL",
       batch: "1984 Batch",
       role: "VICE-CHAIRMAN",
-      image: "/api/placeholder/80/80",
+      image: "https://github.com/shadcn.png",
     },
     {
       name: "XJ PANKAJ AGRAWAL",
       batch: "1989 Batch",
       role: "VICE-CHAIRMAN",
-      image: "/api/placeholder/80/80",
+      image: "https://github.com/shadcn.png",
     },
   ];
 
@@ -41,25 +41,25 @@ const HalfCommitteeMembers: React.FC = () => {
       name: "XJ ABHINAV PANDEY",
       batch: "1999 Batch",
       role: "PRESIDENT",
-      image: "/api/placeholder/80/80",
+      image: "https://github.com/shadcn.png",
     },
     {
       name: "XJ DIGVIJAY SINGH",
       batch: "2000 Batch",
       role: "VICE PRESIDENT",
-      image: "/api/placeholder/80/80",
+      image: "https://github.com/shadcn.png",
     },
     {
       name: "XJ HARSH MADHOK",
       batch: "1999 Batch",
       role: "SECRETARY",
-      image: "/api/placeholder/80/80",
+      image: "https://github.com/shadcn.png",
     },
     {
       name: "XJ MANISH KATARIA",
       batch: "1993 Batch",
       role: "TREASURER",
-      image: "/api/placeholder/80/80",
+      image: "https://github.com/shadcn.png",
     },
   ];
 
