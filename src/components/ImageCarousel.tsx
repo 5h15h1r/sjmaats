@@ -12,6 +12,7 @@ import Autoplay from "embla-carousel-autoplay"
 interface CarouselImage {
   id: number;
   title: string;
+  src: string;
   alt: string;
 }
 
@@ -20,17 +21,20 @@ const ImageCarousel: React.FC = () => {
     {
       id: 1,
       title: "Nature Scene",
+      src: "https://picsum.photos/id/0/5000/3333",
       alt: "Beautiful nature landscape",
     },
     {
       id: 2,
       title: "Urban View",
       alt: "City skyline",
+      src: "https://picsum.photos/id/1/5000/3333",
     },
     {
       id: 3,
       title: "Mountain Range",
       alt: "Snow-capped mountains",
+      src: "https://picsum.photos/id/2/5000/3333",
     },
   ];
 
@@ -48,7 +52,7 @@ const ImageCarousel: React.FC = () => {
             <div className="p-1">
               <div className="relative aspect-video overflow-hidden rounded-xl">
                 <Image
-                  src={`/api/placeholder/800/450`}
+                  src={image.src}
                   alt={image.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, 800px"

@@ -17,49 +17,63 @@ interface MemberCardProps {
 const HalfCommitteeMembers: React.FC = () => {
   const topRow: Member[] = [
     {
-      name: "XJ RAJKUMAR AGRAWAL",
+      name: "RAJKUMAR AGRAWAL",
       batch: "1982 Batch",
       role: "CHAIRMAN",
-      image: "/api/placeholder/80/80",
+      imageUrl: "https://github.com/shadcn.png",
+      dob: "11/11/1982",
+      annidate: "11/01/2022",
     },
     {
-      name: "XJ PUNEET AGRAWAL",
+      name: "PUNEET AGRAWAL",
       batch: "1984 Batch",
       role: "VICE-CHAIRMAN",
-      image: "/api/placeholder/80/80",
+      imageUrl: "https://github.com/shadcn.png",
+      dob: "02/02/1984",
+      annidate: "02/11/2022",
     },
     {
-      name: "XJ PANKAJ AGRAWAL",
+      name: "PANKAJ AGRAWAL",
       batch: "1989 Batch",
       role: "VICE-CHAIRMAN",
-      image: "/api/placeholder/80/80",
+      imageUrl: "https://github.com/shadcn.png",
+      dob: "03/11/1989",
+      annidate: "03/03/2022",
     },
   ];
 
   const bottomRow: Member[] = [
     {
-      name: "XJ ABHINAV PANDEY",
+      name: "ABHINAV PANDEY",
       batch: "1999 Batch",
       role: "PRESIDENT",
-      image: "/api/placeholder/80/80",
+      imageUrl: "https://github.com/shadcn.png",
+      dob: "04/04/1999",
+      annidate: "04/11/2022",
     },
     {
-      name: "XJ DIGVIJAY SINGH",
+      name: "DIGVIJAY SINGH",
       batch: "2000 Batch",
       role: "VICE PRESIDENT",
-      image: "/api/placeholder/80/80",
+      imageUrl: "https://github.com/shadcn.png",
+      dob: "05/05/2000",
+      annidate: "05/05/2022",
     },
     {
-      name: "XJ HARSH MADHOK",
+      name: "HARSH MADHOK",
       batch: "1999 Batch",
       role: "SECRETARY",
-      image: "/api/placeholder/80/80",
+      imageUrl: "https://github.com/shadcn.png",
+      dob: "06/06/1999",
+      annidate: "06/06/2022",
     },
     {
-      name: "XJ MANISH KATARIA",
+      name: "MANISH KATARIA",
       batch: "1993 Batch",
       role: "TREASURER",
-      image: "/api/placeholder/80/80",
+      imageUrl: "https://github.com/shadcn.png",
+      dob: "07/07/1993",
+      annidate: "07/11/2022",
     },
   ];
 
@@ -67,7 +81,7 @@ const HalfCommitteeMembers: React.FC = () => {
     <div className="w-full rounded-lg border border-blue-900 bg-white p-4 md:w-[320px]">
       <div className="flex items-center space-x-4">
         <Image
-          src={member.image}
+          src={member.imageUrl}
           alt={""}
           width={48}
           height={48}
@@ -113,7 +127,7 @@ const HalfCommitteeMembers: React.FC = () => {
       </div>
       <Link
         href="/committemembers"
-        className="mb-11 flex h-16 w-1/2 items-center justify-center rounded-md bg-blue-600 font-bold text-white transition-shadow duration-300 hover:shadow-2xl md:w-1/4"
+        className="mb-11 flex h-16 w-1/2 items-center justify-center rounded-full bg-blue-600 font-bold text-white transition-shadow duration-300 hover:shadow-2xl md:w-1/4"
       >
         View more members
       </Link>
@@ -129,7 +143,7 @@ const CommitteeMembers = () => {
       <CardContent className="h-full p-4">
         <div className="flex h-full items-center gap-4">
           <Image
-            src={member.image}
+            src={member.imageUrl}
             alt={""}
             width={48}
             height={48}

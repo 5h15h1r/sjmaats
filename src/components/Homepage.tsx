@@ -3,9 +3,9 @@ import HalfNews from "@/components/HalfNews";
 import Carousel from "@/components/ImageCarousel";
 import Navbar from "@/components/Navbar";
 import SectionHeading from "@/components/SectionHeading";
+import Footer from "./Footer";
 import Members from "./Members";
 import MonthlyReminder from "./MonthlyReminder";
-import Footer from "./Footer";
 
 const events = [
   {
@@ -45,9 +45,9 @@ const events = [
 
 const Homepage = () => {
   return (
-    <div className="flex h-screen flex-col overflow-auto bg-gray-50">
+    <div className="flex h-screen flex-col md:overflow-auto overflow-x-hidden bg-gray-50">
       <Navbar />
-      <div className="container mx-auto flex flex-grow flex-col px-4 py-8 md:flex-row md:justify-center">
+      <div className="container mx-auto flex flex-grow flex-col px-4 py-8 md:flex-row md:justify-center justify-center items-center gap-8">
         <Carousel />
         <HalfNews
           title="SJMAA"
@@ -63,10 +63,10 @@ const Homepage = () => {
         <Members value="half" />
       </div>
       <SectionHeading title="Monthly Reminders" />
-      <div >
+      <div>
         <MonthlyReminder />
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

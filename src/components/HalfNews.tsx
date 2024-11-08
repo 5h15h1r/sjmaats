@@ -12,7 +12,7 @@ interface HalfNewsProps {
 const HalfNews: React.FC<HalfNewsProps> = ({
   title,
   description,
-  imageUrl = "/api/placeholder/600/400",
+  imageUrl = "https://picsum.photos/id/29/4000/2670",
 }) => {
   return (
     <div className="group relative max-w-sm overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 hover:shadow-xl">

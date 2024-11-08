@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import OTPLoginPopup from "./OTPLogin";
 import VerifyOTP from "./VerifyOTP";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -77,33 +78,10 @@ const Navbar = () => {
             >
               <span className="sr-only">Open main menu</span>
               {isMobileMenuOpen ? (
-                <svg
-                  className="h-6 w-6"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
+                <X/>
+               
               ) : (
-                <svg
-                  className="h-6 w-6"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
+                <Menu/>
               )}
             </button>
           </div>
@@ -123,7 +101,7 @@ const Navbar = () => {
             ))}
             <button
               onClick={() => setIsOTPLoginOpen(true)}
-              className="block w-full px-3 py-2 text-white"
+              className="block w-full px-3 py-2 text-left text-white"
             >
               Log-in
             </button>

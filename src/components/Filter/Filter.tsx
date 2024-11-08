@@ -61,7 +61,7 @@ export const Filter: React.FC<FilterInputProps> = ({
     !["isEmpty", "isNotEmpty"].includes(selectedCondition);
 
   return (
-    <div className="z-50">
+    <div className="">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="outline">

@@ -41,3 +41,22 @@ export type GlobalFilterFn = (
   columnId: string,
   filterValue: string
 ) => boolean;
+
+export interface GalleryImage {
+  id: string;
+  url: string;
+  title: string;
+  createdAt?: string;
+}
+
+export interface GalleryFolder {
+  id: string;
+  name: string;
+  images: GalleryImage[];
+  createdAt?: string;
+  description?: string;
+}
+
+export interface GalleryData {
+  folders: GalleryFolder[];
+}

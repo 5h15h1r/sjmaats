@@ -22,9 +22,7 @@ const HalfEvent: React.FC<HalfEventProps> = ({ events }) => {
   return (
     <div className="min-w-full max-w-4xl rounded-lg bg-white p-6 shadow-md">
       {/* Header */}
-      <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-gray-800">ALUMNI EVENTS</h2>
-      </div>
+      
 
       {/* Events Grid */}
       <div className="mb-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">

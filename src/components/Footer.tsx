@@ -1,133 +1,93 @@
 import React from "react";
+import Image from "next/image";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
-    <div>
-      <footer className="relative mt-[10px] border-gray-200 bg-[#355245] pb-6 pt-8 text-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap text-left lg:text-left">
-            <div className="w-full px-4 lg:w-6/12">
-              <h4 className="fonat-semibold text-blueGray-700 text-3xl">
-                Lets keep in touch!
-              </h4>
-              <h5 className="text-blueGray-600 mb-2 mt-0 text-lg">
-                Find us on any of these platforms, we respond 1-2 business days.
-              </h5>
-              <div className="mb-6 mt-6 lg:mb-0">
-                {/* <button className="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-            <i className="fab fa-twitter"></i></button><button className="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-            <i className="fab fa-facebook-square"></i></button><button className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-            <i className="fab fa-dribbble"></i></button><button className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-            <i className="fab fa-github"></i>
-          </button> */}
-              </div>
-            </div>
-            <div className="w-full px-4 lg:w-6/12">
-              <div className="items-top mb-6 flex flex-wrap">
-                <div className="ml-auto w-full px-4 lg:w-4/12">
-                  <span className="text-blueGray-500 mb-2 block text-sm font-semibold uppercase">
-                    Useful Links
-                  </span>
-                  <ul className="list-unstyled">
-                    <li>
-                      <a
-                        className="text-blueGray-600 hover:text-blueGray-800 block pb-2 text-sm font-semibold"
-                        href="https://www.creative-tim.com/presentation?ref=njs-profile"
-                      >
-                        About Us
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="text-blueGray-600 hover:text-blueGray-800 block pb-2 text-sm font-semibold"
-                        href="https://blog.creative-tim.com?ref=njs-profile"
-                      >
-                        Blog
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="text-blueGray-600 hover:text-blueGray-800 block pb-2 text-sm font-semibold"
-                        href="https://www.github.com/creativetimofficial?ref=njs-profile"
-                      >
-                        Github
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="text-blueGray-600 hover:text-blueGray-800 block pb-2 text-sm font-semibold"
-                        href="https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile"
-                      >
-                        Free Products
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="w-full px-4 lg:w-4/12">
-                  <span className="text-blueGray-500 mb-2 block text-sm font-semibold uppercase">
-                    Other Resources
-                  </span>
-                  <ul className="list-unstyled">
-                    <li>
-                      <a
-                        className="text-blueGray-600 hover:text-blueGray-800 block pb-2 text-sm font-semibold"
-                        href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-profile"
-                      >
-                        MIT License
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="text-blueGray-600 hover:text-blueGray-800 block pb-2 text-sm font-semibold"
-                        href="https://creative-tim.com/terms?ref=njs-profile"
-                      >
-                        Terms &amp; Conditions
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="text-blueGray-600 hover:text-blueGray-800 block pb-2 text-sm font-semibold"
-                        href="https://creative-tim.com/privacy?ref=njs-profile"
-                      >
-                        Privacy Policy
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="text-blueGray-600 hover:text-blueGray-800 block pb-2 text-sm font-semibold"
-                        href="https://creative-tim.com/contact-us?ref=njs-profile"
-                      >
-                        Contact Us
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <hr className="border-blueGray-300 my-6" />
-          <div className="flex flex-wrap items-center justify-center md:justify-between">
-            <div className="mx-auto w-full px-4 text-center md:w-4/12">
-              <div className="text-blueGray-500 py-1 text-sm font-semibold">
-                Copyright © <span id="get-current-year">2021</span>
-                <a
-                  href="https://www.creative-tim.com/product/notus-js"
-                  className="text-blueGray-500 hover:text-gray-800"
-                  target="_blank"
-                />
-                <a
-                  href="https://www.creative-tim.com?ref=njs-profile"
-                  className="text-blueGray-500 hover:text-blueGray-800"
-                >
-                  Shishir
-                </a>
-                .
-              </div>
-            </div>
-          </div>
+    <footer className="mt-6 bg-gray-900 py-12 text-gray-300">
+      <div className="container mx-auto flex flex-col items-center px-4 md:flex-row md:items-start md:justify-between">
+        {/* Logo and Description */}
+        <div className="mb-8 flex flex-col items-center text-center md:mb-0 md:w-1/3 md:items-start md:text-left">
+          <Image
+            src="https://github.com/shadcn.png"
+            alt="School Logo"
+            width={96}
+            height={96}
+            className="mb-4"
+          />
+          <p className="max-w-md text-sm">
+            Welcome to the St Johns School Alumni Association, a vibrant
+            community that brings together generations of proud graduates from
+            St Johns School, B.L.W., Varanasi. Since its inception in 1963, St
+            Johns School has been a beacon of academic excellence and holistic
+            development, shaping the lives of countless students who have gone
+            on to excel in various fields.
+          </p>
         </div>
-      </footer>
-    </div>
+
+        {/* Quick Links */}
+        <div className="mb-8 text-center md:mb-0 md:w-1/4 md:text-left">
+          <h3 className="mb-4 text-lg font-semibold text-yellow-500">
+            Quick Links
+          </h3>
+          <ul className="space-y-2">
+            <li>
+              <a href="#" className="hover:text-yellow-500">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-yellow-500">
+                About Us
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-yellow-500">
+                Members
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-yellow-500">
+                Events
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-yellow-500">
+                Gallery
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Contact Info */}
+        <div className="text-center md:w-1/3 md:text-left">
+          <h3 className="mb-4 text-lg font-semibold text-yellow-500">
+            Contact Us
+          </h3>
+          <ul className="space-y-2">
+            <li className="flex flex-col items-center gap-2 md:flex-row md:items-start">
+              <a href="mailto:sjsaa1999@gmail.com" className="break-all">
+                📧 sjmaa1@gmail.com
+              </a>
+            </li>
+            <li className="flex flex-col items-center gap-2 md:flex-row md:items-start">
+              <a href="mailto:sjsaadlwvns@gmail.com" className="break-all">
+                📧 sjmaa2@gmail.com
+              </a>
+            </li>
+            <li className="flex flex-col items-center gap-2 md:flex-row md:items-start">
+              <span className="text-center md:text-left">
+                📍 School Off: Marhauli, Varanasi, Uttar Pradesh 221004, India
+              </span>
+            </li>
+            <li className="flex flex-col items-center gap-2 md:flex-row md:items-start">
+              <span className="text-center md:text-left">
+                📍 Admin Off: Marhauli, Varanasi – 221001.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
   );
 };
 
