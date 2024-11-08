@@ -6,6 +6,7 @@ import { type Metadata } from "next";
 export const metadata: Metadata = {
   title: "SJMAA",
   description: "St John's Marhauli Alumni Association",
+  
 };
 
 export default function RootLayout({

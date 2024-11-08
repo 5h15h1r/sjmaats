@@ -1,11 +1,7 @@
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { Table } from "@/components/Table";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+
 
 const members = () => {
   const users = [
@@ -48,6 +44,7 @@ const members = () => {
       <div className="flex items-center justify-center m-auto max-w-6xl ">
         <Table data={users}/>
       </div>
+      <Footer/>
     </div>
   );
 };

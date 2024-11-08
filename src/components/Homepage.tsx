@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import SectionHeading from "@/components/SectionHeading";
 import Members from "./Members";
 import MonthlyReminder from "./MonthlyReminder";
+import Footer from "./Footer";
 
 const events = [
   {
@@ -62,9 +63,10 @@ const Homepage = () => {
         <Members value="half" />
       </div>
       <SectionHeading title="Monthly Reminders" />
-      <div className="mt-8 w-full">
-        <MonthlyReminder type="both" />
+      <div >
+        <MonthlyReminder />
       </div>
+      <Footer/>
     </div>
   );
 };
