@@ -19,7 +19,13 @@ const config = {
             hostname: 'github.com',
             port: '',
             pathname: '/**',
-           }
+           },
+           {
+            protocol: 'https',
+            hostname: 'vaave.s3.amazonaws.com',
+            port: '',
+            pathname: '/**',
+           },
         ],
       },
 };

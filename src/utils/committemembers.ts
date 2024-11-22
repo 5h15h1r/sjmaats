@@ -2,123 +2,183 @@ import { type Member } from "@/types/types";
 
 export const committeeMembers: Member[] = [
   {
-    name: "RAJKUMAR AGRAWAL",
+    name: "ABHILASH GUPTA",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_69fcf6785ab4310eb3227c8bf35b9520_thumb.jpeg",
     batch: "1982 Batch",
     role: "CHAIRMAN",
-    imageUrl: "https://github.com/shadcn.png",
     dob: "11/11/1982",
-    annidate: "11/01/2022"
+    annidate: "11/01/2022",
   },
   {
-    name: "PUNEET AGRAWAL",
-    batch: "1984 Batch",
-    role: "VICE-CHAIRMAN",
-    imageUrl: "https://github.com/shadcn.png",
-    dob: "02/02/1984",
-    annidate: "02/11/2022"
+    name: "Dr. Suresh Kumar Maurya",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_fa257568318b3bae8b8770fb4f8fbd47_thumb.jpg",
+    batch: "1982 Batch",
+    role: "CHAIRMAN",
+    dob: "11/11/1982",
+    annidate: "11/01/2022",
   },
   {
-    name: "PANKAJ AGRAWAL",
-    batch: "1989 Batch",
-    role: "VICE-CHAIRMAN",
-    imageUrl: "https://github.com/shadcn.png",
-    dob: "03/11/1989",
-    annidate: "03/03/2022"
+    name: "Madhulika Tyagi Tyagi",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_67774d898676c881fad7e4217ea39b2f_thumb.jpeg",
+    batch: "1982 Batch",
+    role: "CHAIRMAN",
+    dob: "11/11/1982",
+    annidate: "11/01/2022",
   },
   {
-    name: "ABHINAV PANDEY",
-    batch: "1999 Batch",
-    role: "PRESIDENT",
-    imageUrl: "https://github.com/shadcn.png",
-    dob: "04/04/1999",
-    annidate: "04/11/2022"
+    name: "Vishal Bhargava",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_2c2f2dee49a1f06aafcd02c83263fea5_thumb.jpeg",
+    batch: "1982 Batch",
+    role: "CHAIRMAN",
+    dob: "11/11/1982",
+    annidate: "11/01/2022",
   },
   {
-    name: "DIGVIJAY SINGH",
-    batch: "2000 Batch",
-    role: "VICE PRESIDENT",
-    imageUrl: "https://github.com/shadcn.png",
-    dob: "05/05/2000",
-    annidate: "05/05/2022"
+    name: "Anoop Gupta",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_7f5807ad6cc6833469393eaf8d974368_thumb.jpg",
+    batch: "1982 Batch",
+    role: "CHAIRMAN",
+    dob: "11/11/1982",
+    annidate: "11/01/2022",
   },
   {
-    name: "HARSH MADHOK",
-    batch: "1999 Batch",
-    role: "SECRETARY",
-    imageUrl: "https://github.com/shadcn.png",
-    dob: "06/06/1999",
-    annidate: "06/06/2022"
+    name: "Ashwin Sahai",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_bdb0270ff1e6929a3b2bde245382a410_thumb.jpg",
+    batch: "1982 Batch",
+    role: "CHAIRMAN",
+    dob: "11/11/1982",
+    annidate: "11/01/2022",
   },
   {
-    name: "MANISH KATARIA",
-    batch: "1993 Batch",
-    role: "TREASURER",
-    imageUrl: "https://github.com/shadcn.png",
-    dob: "07/07/1993",
-    annidate: "07/11/2022"
+    name: "GAURAV RANA",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_8a513203182295cef9cd16a7b9e78cba_thumb.jpeg",
+    batch: "1982 Batch",
+    role: "CHAIRMAN",
+    dob: "11/11/1982",
+    annidate: "11/01/2022",
   },
   {
-    name: "RAHUL SHARMA",
-    batch: "1995 Batch",
-    role: "JOINT SECRETARY",
-    imageUrl: "https://github.com/shadcn.png",
-    dob: "08/08/1995",
-    annidate: "08/08/2022"
+    name: "Anchal Srivastava",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_159b2986e09252598171a3050340e01d_thumb.jpeg",
+    batch: "1982 Batch",
+    role: "CHAIRMAN",
+    dob: "11/11/1982",
+    annidate: "11/01/2022",
   },
   {
-    name: "PRIYA PATEL",
-    batch: "1998 Batch",
-    role: "EXECUTIVE MEMBER",
-    imageUrl: "https://github.com/shadcn.png",
-    dob: "09/09/1998",
-    annidate: "09/09/2022"
+    name: "Saurabh Maheshwari",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_451cc6532795ceb990bc987b1dc24c2d_thumb.jpeg",
+    batch: "1982 Batch",
+    role: "CHAIRMAN",
+    dob: "11/11/1982",
+    annidate: "11/01/2022",
   },
   {
-    name: "VIKRAM MEHTA",
-    batch: "1991 Batch",
-    role: "EXECUTIVE MEMBER",
-    imageUrl: "https://github.com/shadcn.png",
-    dob: "10/11/1991",
-    annidate: "10/10/2022"
+    name: "Shirshak Sah",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_333830f962b69f17d7a30f795e421a23_thumb.jpeg",
+    batch: "1982 Batch",
+    role: "CHAIRMAN",
+    dob: "11/11/1982",
+    annidate: "11/01/2022",
   },
   {
-    name: "AMIT KUMAR",
-    batch: "1997 Batch",
-    role: "EXECUTIVE MEMBER",
-    imageUrl: "https://github.com/shadcn.png",
-    dob: "11/11/1997",
-    annidate: "11/01/2022"
+    name: "Munmun Sengupta",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_4ae7d25052c79f603edf6814464202db_thumb.jpeg",
+    batch: "1982 Batch",
+    role: "CHAIRMAN",
+    dob: "11/11/1982",
+    annidate: "11/01/2022",
   },
   {
-    name: "SURESH REDDY",
-    batch: "1994 Batch",
-    role: "COMMITTEE HEAD",
-    imageUrl: "https://github.com/shadcn.png",
-    dob: "12/12/1994",
-    annidate: "12/12/2022"
+    name: "Devesh Nagpal",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_fba5d9492f7309f0565b5969ab6d937a_thumb.jpg",
+    batch: "1982 Batch",
+    role: "CHAIRMAN",
+    dob: "11/11/1982",
+    annidate: "11/01/2022",
   },
   {
-    name: "NEHA GUPTA",
-    batch: "1996 Batch",
-    role: "COMMITTEE HEAD",
-    imageUrl: "https://github.com/shadcn.png",
-    dob: "01/01/1996",
-    annidate: "01/01/2023"
+    name: "Ishan Agrawal",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_bb6e7c00df9179200f755c79be78641c_thumb.jpeg",
+    batch: "1982 Batch",
+    role: "CHAIRMAN",
+    dob: "11/11/1982",
+    annidate: "11/01/2022",
   },
   {
-    name: "RAJESH VERMA",
-    batch: "1992 Batch",
-    role: "COMMITTEE HEAD",
-    imageUrl: "https://github.com/shadcn.png",
-    dob: "02/02/1992",
-    annidate: "02/02/2023"
+    name: "Abhishek Sharma",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_b6d00bd540741d4f19cb706ab1e31ced_thumb.jpeg",
+    batch: "1982 Batch",
+    role: "CHAIRMAN",
+    dob: "11/11/1982",
+    annidate: "11/01/2022",
   },
   {
-    name: "ANIL SINGH",
-    batch: "1990 Batch",
-    role: "EXECUTIVE MEMBER",
-    imageUrl: "https://github.com/shadcn.png",
-    dob: "03/03/1990",
-    annidate: "03/03/2023"
-  }
+    name: "Sandeep Naik",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_2db8ff7cf90df83eb1393109d5005dc0_thumb.jpeg",
+    batch: "1982 Batch",
+    role: "CHAIRMAN",
+    dob: "11/11/1982",
+    annidate: "11/01/2022",
+  },
+  {
+    name: "Dr. Vaibhav S",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_e1c3456f8ed908635811e5373d8f71d6_thumb.jpeg",
+    batch: "1982 Batch",
+    role: "CHAIRMAN",
+    dob: "11/11/1982",
+    annidate: "11/01/2022",
+  },
+  {
+    name: "Amit Kalra",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_182a3a90092d9433d51225bae2bdc765_thumb.jpeg",
+    batch: "1982 Batch",
+    role: "CHAIRMAN",
+    dob: "11/11/1982",
+    annidate: "11/01/2022",
+  },
+  {
+    name: "Dr Sunil Kumar Yadav",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_668ae9b8a79f28722b05735ddeac0066_thumb.jpeg",
+    batch: "1982 Batch",
+    role: "CHAIRMAN",
+    dob: "11/11/1982",
+    annidate: "11/01/2022",
+  },
+  {
+    name: "Rashi Wahi",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_8c0a5e844539c921572c974ae9d3b9a7_thumb.jpeg",
+    batch: "1982 Batch",
+    role: "CHAIRMAN",
+    dob: "11/11/1982",
+    annidate: "11/01/2022",
+  },
+  {
+    name: "Abhinav Singh",
+    imageUrl:
+      "https://vaave.s3.amazonaws.com/album_photos/851f5ac9941d720844d143ed9cfcf60a_b8bdb4bf618a2f5f1a64fa0e194a52ae_thumb.jpeg",
+    batch: "1982 Batch",
+    role: "CHAIRMAN",
+    dob: "11/11/1982",
+    annidate: "11/01/2022",
+  },
 ];
