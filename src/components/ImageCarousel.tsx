@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import React, { useRef } from "react";
 import {
@@ -8,7 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay"
+import Autoplay from "embla-carousel-autoplay";
 
 interface CarouselImage {
   id: number;
@@ -18,28 +18,20 @@ interface CarouselImage {
 }
 
 const ImageCarousel: React.FC = () => {
-  const plugin = useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: false })
-  );
+  const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: false }));
 
   const images: CarouselImage[] = [
     {
       id: 1,
       title: "Nature Scene",
-        src: "https://picsum.photos/id/0/5000/3333",
+      src: "https://vaave.s3.amazonaws.com/assets/site_content/151669119/banners/851f5ac9941d720844d143ed9cfcf60a_ba9af54ac04f6623287a5d9ad91f32a3.jpeg",
       alt: "Beautiful nature landscape",
     },
     {
       id: 2,
       title: "Urban View",
       alt: "City skyline",
-      src: "https://picsum.photos/id/1/5000/3333",
-    },
-    {
-      id: 3,
-      title: "Mountain Range",
-      alt: "Snow-capped mountains",
-      src: "https://picsum.photos/id/2/5000/3333",
+      src: "https://vaave.s3.amazonaws.com/assets/site_content/151669119/banners/851f5ac9941d720844d143ed9cfcf60a_577481e9979eb6611d0e81fb8d1866f4.jpeg",
     },
   ];
 
@@ -80,6 +72,3 @@ const ImageCarousel: React.FC = () => {
 };
 
 export default ImageCarousel;
-
-
-

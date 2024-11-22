@@ -7,17 +7,24 @@ interface SectionHeadingProps {
 
 const SectionHeading: FC<SectionHeadingProps> = ({ title, className = "" }) => {
   return (
-    <div className={`flex w-full items-center gap-3 py-4 ${className}`}>
-      {/* Title with classic font and responsive styling */}
-      <h2 className="min-w-fit font-serif text-2xl font-semibold tracking-wide text-blue-900 md:text-4xl md:tracking-normal">
-        {title}
-      </h2>
-
-      {/* Decorative Separator */}
-      <div className="flex w-full items-center gap-2">
-        <div className="h-1 w-8 rounded-full bg-blue-500 md:w-20"></div>
-        <div className="h-1 flex-grow rounded-full bg-blue-500"></div>
-        <div className="h-2 w-2 rounded-full bg-blue-500 shadow-md"></div>
+    <div className={`relative w-full py-6 ${className}`}>
+      <div className="container mx-auto px-4">
+        <div className="relative flex items-center">
+          <div className="absolute left-0 top-1/2 h-0.5 w-full bg-blue-100"></div>
+          <div className="relative z-10 flex w-full items-center">
+            <div className="bg-white pr-6">
+              <h2 className="text-2xl font-bold tracking-wide text-blue-900 md:text-4xl">
+                {title}
+              </h2>
+            </div>
+            <div className="flex-grow">
+              <div className="h-1 bg-gradient-to-r from-blue-500 via-blue-300 to-transparent"></div>
+            </div>
+            <div className="ml-4 flex items-center space-x-2">
+             
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

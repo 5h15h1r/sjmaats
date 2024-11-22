@@ -14,7 +14,7 @@ export default async function GalleryPage() {
   const galleryData = await getGalleryData();
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className=" bg-gray-50">
       <Navbar/>
       <div className="container mx-auto py-8">
         <h1 className="mb-8 px-4 text-3xl font-bold">Photo Gallery</h1>

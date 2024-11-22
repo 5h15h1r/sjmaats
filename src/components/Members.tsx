@@ -11,15 +11,15 @@ interface MembersProps {
 
 const Members: React.FC<MembersProps> = ({ value }) => {
   const MemberCard: React.FC<{ member: Member }> = ({ member }) => (
-    <div className="w-full rounded-lg border border-blue-900 bg-white p-4 md:w-[320px]">
+    <div className="w-full rounded-lg border border-blue-900 bg-white p-2 md:w-[320px]">
       <div className="flex items-center space-x-4">
         <Image
           src={member.imageUrl}
           alt={member.name}
-          width={48}
-          height={48}
+          width={60}
+          height={60}
           className="rounded-full border-2 border-orange-500 object-cover"
-          style={{ width: "48px", height: "48px" }}
+          // style={{ width: "48px", height: "48px" }}
         />
         <div className="flex flex-col">
           <h3 className="text-base font-bold tracking-wide text-orange-500">
@@ -82,6 +82,7 @@ const Members: React.FC<MembersProps> = ({ value }) => {
               className="transform transition-transform duration-300 hover:-translate-y-1"
             >
               <MemberCard member={member} />
+
             </div>
           ))}
         </div>

@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
           <p className="max-w-md text-sm">
             Welcome to the St Johns School Alumni Association, a vibrant
             community that brings together generations of proud graduates from
-            St Johns School, B.L.W., Varanasi. Since its inception in 1963, St
+            St Johns School, Marhauli, Varanasi. Since its inception in 1963, St
             Johns School has been a beacon of academic excellence and holistic
             development, shaping the lives of countless students who have gone
             on to excel in various fields.

@@ -35,10 +35,10 @@ const MonthlyCard: FC<MonthlyCardProps> = ({ data, title }) => {
                 <Image
                   src={person.imageUrl}
                   alt={""}
-                  width={48}
-                  height={48}
+                  width={60}
+                  height={60}
                   className="flex-shrink-0 rounded-full border-2 border-orange-500 object-cover shadow-md"
-                  style={{ width: "48px", height: "48px" }}
+                  // style={{ width: "48px", height: "48px" }}
                 />
                 <div className="flex flex-1 items-center justify-between">
                   <p className="font-medium text-blue-900">{person.name}</p>

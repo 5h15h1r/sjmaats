@@ -1,4 +1,4 @@
-import { committeeMembers } from "@/utils/committemembers";
+import { committeeMembers } from "@/utils/ReminderData";
 import { FC } from "react";
 import MonthlyCard from "./MonthlyCard";
 
