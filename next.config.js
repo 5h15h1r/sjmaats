@@ -6,28 +6,34 @@ await import("./src/env.js");
 
 /** @type {import("next").NextConfig} */
 const config = {
-    images: {
-        remotePatterns: [
-          {
-            protocol: 'https',
-            hostname: 'picsum.photos',
-            port: '',
-            pathname: '/**',
-          },
-           {
-            protocol: 'https',
-            hostname: 'github.com',
-            port: '',
-            pathname: '/**',
-           },
-           {
-            protocol: 'https',
-            hostname: 'vaave.s3.amazonaws.com',
-            port: '',
-            pathname: '/**',
-           },
-        ],
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "picsum.photos",
+        port: "",
+        pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "github.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "vaave.s3.amazonaws.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  },
 };
 
 export default config;

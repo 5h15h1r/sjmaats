@@ -1,9 +1,8 @@
-import React from "react";
+import { type Member } from "@/types/types";
+import { committeeMembers } from "@/utils/committemembers";
 import Image from "next/image";
 import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
-import { committeeMembers } from "@/utils/committemembers"; 
-import { type Member } from "@/types/types";
+import React from "react";
 
 interface MembersProps {
   value: "half" | "full";
@@ -40,7 +39,6 @@ const Members: React.FC<MembersProps> = ({ value }) => {
 
     return (
       <div className="flex flex-col items-center justify-center space-y-4 px-4 md:px-0">
-       
         <div className="flex w-full flex-col space-y-4 md:hidden">
           {[...topRow, ...bottomRow].map((member, index) => (
             <MemberCard key={index} member={member} />
@@ -62,11 +60,12 @@ const Members: React.FC<MembersProps> = ({ value }) => {
             ))}
           </div>
         </div>
+        
         <Link
           href="/committemembers"
-          className="mb-11 flex h-16 w-1/2 items-center justify-center rounded-full bg-blue-600 font-bold text-white transition-shadow duration-300 hover:shadow-2xl md:w-1/4"
+          className="mx-auto mb-8 flex h-12 w-4/5 items-center justify-center rounded-full bg-blue-600 px-5 font-bold text-white transition-shadow duration-300 hover:shadow-2xl sm:h-14 sm:w-3/5 md:h-16 md:w-1/4"
         >
-          View more members
+          View More Members
         </Link>
       </div>
     );
@@ -82,7 +81,6 @@ const Members: React.FC<MembersProps> = ({ value }) => {
               className="transform transition-transform duration-300 hover:-translate-y-1"
             >
               <MemberCard member={member} />
-
             </div>
           ))}
         </div>

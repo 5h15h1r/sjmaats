@@ -6,42 +6,9 @@ import SectionHeading from "@/components/SectionHeading";
 import Footer from "./Footer";
 import Members from "./Members";
 import MonthlyReminder from "./MonthlyReminder";
+import { events } from "@/utils/events";
 
-const events = [
-  {
-    id: 1,
-    date: {
-      day: "27",
-      month: "Oct",
-      weekday: "Sun",
-    },
-    title: "Omaha Reads: Theodore Wheeler Author Visit",
-    time: "03:00pm",
-    location: "Nebraska",
-  },
-  {
-    id: 2,
-    date: {
-      day: "07",
-      month: "Nov",
-      weekday: "Thu",
-    },
-    title: "Silent Ignation Retreat for Women",
-    time: "All Day",
-    location: "Iowa",
-  },
-  {
-    id: 3,
-    date: {
-      day: "22",
-      month: "Nov",
-      weekday: "Fri",
-    },
-    title: "Recent Alumni Pregame-Friendsgiving",
-    time: "04:30pm",
-    location: "Nebraska",
-  },
-];
+
 
 const Homepage = () => {
   return (

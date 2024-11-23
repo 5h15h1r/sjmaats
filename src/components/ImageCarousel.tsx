@@ -37,7 +37,7 @@ const ImageCarousel: React.FC = () => {
 
   return (
     <Carousel
-      className="mx-auto w-full max-w-3xl"
+      className="mx-auto w-full max-w-3xl "
       plugins={[plugin.current]}
       opts={{
         loop: true,
@@ -47,8 +47,8 @@ const ImageCarousel: React.FC = () => {
       <CarouselContent>
         {images.map((image) => (
           <CarouselItem key={image.id}>
-            <div className="p-1">
-              <div className="relative aspect-video overflow-hidden rounded-xl">
+            <div className="p-1 ">
+              <div className="relative aspect-video overflow-hidden ">
                 <Image
                   src={image.src}
                   alt={image.alt}

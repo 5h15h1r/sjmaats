@@ -1,24 +1,25 @@
-import { committeeMembers } from "@/utils/ReminderData";
-import { FC } from "react";
+import { type FC } from "react";
 import MonthlyCard from "./MonthlyCard";
+import { committeeMembers } from "@/utils/ReminderData";
 
 const MonthlyReminders: FC = () => {
   // Get the current month
-  const currentMonth = new Date().getMonth() + 1;
+  const currentMonth = new Date().getMonth() + 1; // 1-12
 
-  // Filter the data for birthdays and anniversaries in the current month
-  const dobData = committeeMembers.filter((member) => {
+  // Filter the data for birthdays in the current month
+  const birthdayData = committeeMembers.filter((member) => {
     if (member.dob) {
-      const [, dobMonth] = member.dob.split("/");
-      return dobMonth ? parseInt(dobMonth) === currentMonth : false;
+      const [month] = member.dob.split("/");
+      return parseInt(month) === currentMonth;
     }
     return false;
   });
 
-  const annidateData = committeeMembers.filter((member) => {
+  // Filter the data for anniversaries in the current month
+  const anniversaryData = committeeMembers.filter((member) => {
     if (member.annidate) {
-      const [, annidateMonth] = member.annidate.split("/");
-      return annidateMonth ? parseInt(annidateMonth) === currentMonth : false;
+      const [month] = member.annidate.split("/");
+      return parseInt(month) === currentMonth;
     }
     return false;
   });
@@ -27,12 +28,8 @@ const MonthlyReminders: FC = () => {
     <div className="h-auto">
       <div className="mx-auto max-w-5xl px-4 py-8">
         <div className="grid w-full gap-8 md:grid-cols-2 md:gap-1">
-          {dobData.length > 0 && (
-            <MonthlyCard data={dobData} title="💑 Anniversaries" />
-          )}
-          {annidateData.length > 0 && (
-            <MonthlyCard data={annidateData} title="🎂 Birthdays" />
-          )}
+          <MonthlyCard data={birthdayData} title="🎂 Birthdays" />
+          <MonthlyCard data={anniversaryData} title="💑 Anniversaries" />
         </div>
       </div>
     </div>

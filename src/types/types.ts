@@ -7,6 +7,20 @@ export interface Member {
   annidate: string;
 }
 
+export interface Event {
+  id: number;
+  date: {
+    day: string;
+    month: string;
+    weekday: string;
+  };
+  title: string;
+  time: string;
+  location: string;
+  imageUrl: string;
+  description: string;
+}
+
 
 
 export interface FilterTag {
