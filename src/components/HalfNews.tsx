@@ -6,26 +6,28 @@ import React from "react";
 interface HalfNewsProps {
   title: string;
   description: string;
-  imageUrl?: string;
+  imageUrl: string;
 }
 
 const HalfNews: React.FC<HalfNewsProps> = ({
   title,
   description,
-  imageUrl = "https://picsum.photos/id/29/4000/2670",
+  imageUrl,
 }) => {
   return (
     <div className="group relative max-w-sm overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 hover:shadow-xl">
       {/* Image Container */}
-      <div className="relative aspect-video w-full overflow-hidden">
-        <Image
-          src={imageUrl}
-          alt={title}
-          fill
-          sizes="(max-width: 640px) 100vw, 600px"
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
-          priority
-        />
+      <div className="relative aspect-video w-full">
+        <div className="absolute bottom-0 left-0 right-0 top-0 m-2">
+          <Image
+            src={imageUrl}
+            alt={title}
+            fill
+            sizes="(max-width: 640px) 100vw, 600px"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            priority
+          />
+        </div>
       </div>
 
       {/* Content Container */}

@@ -10,9 +10,9 @@ const SectionHeading: FC<SectionHeadingProps> = ({ title, className = "" }) => {
     <div className={`relative w-full py-6 ${className}`}>
       <div className="container mx-auto px-4">
         <div className="relative flex items-center">
-          <div className="absolute left-0 top-1/2 h-0.5 w-full bg-blue-100"></div>
+          <div className="absolute left-0 top-1/2 h-0.5 w-full "></div>
           <div className="relative z-10 flex w-full items-center">
-            <div className="bg-white pr-6">
+            <div className=" pr-6">
               <h2 className="text-2xl font-bold tracking-wide text-blue-900 md:text-4xl">
                 {title}
               </h2>

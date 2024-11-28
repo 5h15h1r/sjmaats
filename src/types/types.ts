@@ -7,6 +7,16 @@ export interface Member {
   annidate: string;
 }
 
+export interface News {
+  id: number,
+  title: string,
+  description: string,
+  img: string,
+  date: string,
+  slug: string,
+  links ?: string
+  
+}
 export interface Event {
   id: number;
   date: {

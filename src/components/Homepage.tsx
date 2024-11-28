@@ -3,23 +3,26 @@ import HalfNews from "@/components/HalfNews";
 import Carousel from "@/components/ImageCarousel";
 import Navbar from "@/components/Navbar";
 import SectionHeading from "@/components/SectionHeading";
+import { events } from "@/utils/events";
+import { news } from "@/utils/news";
 import Footer from "./Footer";
 import Members from "./Members";
 import MonthlyReminder from "./MonthlyReminder";
-import { events } from "@/utils/events";
-
-
 
 const Homepage = () => {
+  const halfnews = news[0];
   return (
-    <div className="flex h-screen flex-col md:overflow-auto overflow-x-hidden bg-gray-50">
+    <div className="flex h-screen flex-col overflow-x-hidden bg-gray-50 md:overflow-auto">
       <Navbar />
-      <div className="container mx-auto flex flex-grow flex-col px-4 py-8 md:flex-row md:justify-center justify-center items-center gap-8">
+      <div className="container mx-auto flex flex-grow flex-col items-center justify-center gap-8 px-4 py-8 md:flex-row md:justify-center">
         <Carousel />
-        <HalfNews
-          title="SJMAA"
-          description="I'll help you convert the JSX to TSX by adding proper TypeScript types and explain the type safety considerations."
-        />
+        {halfnews && (
+          <HalfNews
+            title={halfnews.title}
+            description={halfnews.description}
+            imageUrl={halfnews.img}
+          />
+        )}
       </div>
       <SectionHeading title="Events" />
       <div className="mt-3 w-full">
