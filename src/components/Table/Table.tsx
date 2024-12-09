@@ -1,9 +1,10 @@
 "use client";
-import { FilterTag, Row, GlobalFilterFn } from "@/types/types";
 import {
-  ColumnDef,
+  FilterTag,
+  GlobalFilterFn,
+} from "@/types/types";
+import {
   ColumnFilter,
-  FilterFn,
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
@@ -13,10 +14,10 @@ import {
   useReactTable,
   VisibilityState,
 } from "@tanstack/react-table";
-import { usePathname, useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-// import { Filter, FilterInput } from "../../molecules/Filter";
+import { Filter } from "@/components/Filter/Filter";
+
 import {
   Table as ShadTable,
   TableBody,
@@ -26,11 +27,11 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import {
-  CaretSortIcon,
   DoubleArrowLeftIcon,
   DoubleArrowRightIcon,
+  DownloadIcon,
 } from "@radix-ui/react-icons";
-import { Checkbox } from "@/components/ui/checkbox";
+
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -41,195 +42,19 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Filter } from "./Filter/Filter";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Pencil,
+  Trash2Icon,
+  Upload,
+} from "lucide-react";
 
-const formatCellValue = (value: any): string | JSX.Element => {
-  if (value === null || value === undefined) return "N/A";
-  if (typeof value === "boolean") return value ? "Yes" : "No";
-  if (Array.isArray(value)) return value.join(", ");
-  if (typeof value === "object") {
-    return (
-      <div>
-        {Object.entries(value).map(([subKey, subValue]) => (
-          <div key={subKey}>{`${subKey}: ${subValue}`}</div>
-        ))}
-      </div>
-    );
-  }
-  return String(value);
-};
+import { getColumns, truncateText } from "./TableUtils";
 
-const getFilterFn = (value: any) => {
-  if (typeof value === "string") {
-    return "includesString";
-  } else if (typeof value === "number") {
-    return "weakEquals";
-  } else if (Array.isArray(value)) {
-    return "arrIncludes";
-  } else {
-    return "equals";
-  }
-};
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 
-// Conditional filter functions
-const conditionalFilters: Record<string, FilterFn<any>> = {
-  isEmpty: (row, columnId) => {
-    const value = row.getValue(columnId);
-    return value === null || value === undefined || value === "";
-  },
-
-  isNotEmpty: (row, columnId) => {
-    const value = row.getValue(columnId);
-    return value !== null && value !== undefined && value !== "";
-  },
-
-  greaterThan: (row, columnId, filterValue) => {
-    const value = row.getValue(columnId);
-    return typeof value === "number" && value > Number(filterValue);
-  },
-
-  lessThan: (row, columnId, filterValue) => {
-    const value = row.getValue(columnId);
-    return typeof value === "number" && value < Number(filterValue);
-  },
-
-  textContains: (row, columnId, filterValue) => {
-    const value = String(row.getValue(columnId)).toLowerCase();
-    return value.includes(String(filterValue).toLowerCase());
-  },
-
-  textNotContains: (row, columnId, filterValue) => {
-    const value = String(row.getValue(columnId)).toLowerCase();
-    return !value.includes(String(filterValue).toLowerCase());
-  },
-
-  textStartsWith: (row, columnId, filterValue) => {
-    const value = row.getValue(columnId);
-    if (Array.isArray(value)) {
-      return value.some((item) =>
-        String(item)
-          .toLowerCase()
-          .startsWith(String(filterValue).toLowerCase()),
-      );
-    }
-    return String(value)
-      .toLowerCase()
-      .startsWith(String(filterValue).toLowerCase());
-  },
-
-  textEndsWith: (row, columnId, filterValue) => {
-    const value = row.getValue(columnId);
-    if (Array.isArray(value)) {
-      return value.some((item) =>
-        String(item).toLowerCase().endsWith(String(filterValue).toLowerCase()),
-      );
-    }
-    return String(value)
-      .toLowerCase()
-      .endsWith(String(filterValue).toLowerCase());
-  },
-};
-
-const staticColumns = [
-  {
-    id: "select",
-    header: ({ table }: { table: any }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
-    ),
-    cell: ({ row }: { row: any }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
-    ),
-  },
-];
-
-const generateDynamicColumns = <T extends Record<string, any>>(
-  data: T[],
-): ColumnDef<T>[] => {
-  if (!data || data.length === 0) return [];
-
-  return Object.keys(data[0]).map((key) => {
-    const value = data[0][key];
-    const filterType = getFilterFn(value);
-
-    return {
-      accessorKey: key as keyof T,
-      header: ({ column }) => (
-        <div
-          className="flex"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          {key.charAt(0).toUpperCase() + key.slice(1)}
-          <CaretSortIcon className="ml-2 h-4 w-4" />
-        </div>
-      ),
-      cell: ({ row }) => <div>{formatCellValue(row.getValue(key))}</div>,
-      filterFn: (row, columnId, filterValue) => {
-        if (filterValue?.condition) {
-          console.log(filterValue.condition);
-
-          const filterFunction = conditionalFilters[filterValue.condition];
-          return filterFunction
-            ? filterFunction(row, columnId, filterValue.value)
-            : true;
-        }
-        // Handle basic filtering based on data type
-        const value = row.getValue(columnId);
-
-        switch (filterType) {
-          case "includesString":
-            return String(value)
-              .toLowerCase()
-              .includes(String(filterValue).toLowerCase());
-
-          case "weakEquals":
-            return Number(value) === Number(filterValue);
-
-          case "arrIncludes":
-            return (
-              Array.isArray(value) &&
-              value.some((item) =>
-                String(item)
-                  .toLowerCase()
-                  .includes(String(filterValue).toLowerCase()),
-              )
-            );
-
-          case "equals":
-            return value === filterValue;
-
-          default:
-            return true;
-        }
-      },
-    };
-  });
-};
-
-export const getColumns = <T extends object>(data: T[]): ColumnDef<T>[] => {
-  const dynamicColumns = generateDynamicColumns(data);
-  return [staticColumns[0], ...dynamicColumns];
-};
-
-const truncateText = (text: string, wordLimit: number) => {
-  const words = text.split(" ");
-  if (words.length > wordLimit) {
-    return words.slice(0, wordLimit).join(" ") + "...";
-  }
-  return text;
-};
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function Table({ data }: { data: any[] }) {
   const columns = React.useMemo(() => getColumns(data), [data]);
   const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -243,23 +68,184 @@ export function Table({ data }: { data: any[] }) {
     pageIndex: 0,
     pageSize: 10,
   });
+  const [isAddingRow, setIsAddingRow] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [newRowData, setNewRowData] = useState<{ [key: string]: any }>({});
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [tableData, setTableData] = useState<any[]>(data);
+  const [editedRow, setEditedRow] = useState<number | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [editedValues, setEditedValues] = useState<{ [key: string]: any }>({});
 
-  const router = useRouter();
-  const pathname = usePathname();
-  const productsPerPage = [10, 20, 30, 40, 50];
+  const productsPerPage: Array<number> = [10, 20, 30, 40, 50];
 
-  React.useEffect(() => {
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [editingItem, setEditingItem] = useState<any>(null);
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleEdit = (rowData: any) => {
+    setEditingItem(rowData);
+    setIsEditModalOpen(true);
+  };
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const handleSave = (updatedData: any) => {
+  const updatedTableData = tableData.map((row) =>
+    row.id === updatedData.id ? updatedData : row
+  );
+  setTableData(updatedTableData);
+  setIsEditModalOpen(false);
+};
+// const initializeNewRow = () => {
+//   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+//     const emptyRow = table
+//       .getAllColumns()
+//       .filter(column => column.getIsVisible() && column.id !== 'select')
+//       .reduce((acc, column) => {
+//         acc[column.id] = '';
+//         return acc;
+//         // eslint-disable-next-line @typescript-eslint/no-explicit-any
+//       }, {} as { [key: string]: any });
+//     setNewRowData(emptyRow);
+//     setIsAddingRow(true);
+//   };
+
+  const handleAddRow = () => {
+    const newRow = { ...newRowData };
+    setTableData((prevData) => [...prevData, newRow]);
+    setIsAddingRow(false);
+    setNewRowData({});
+  };
+
+  const handleCancelAdd = () => {
+    setIsAddingRow(false);
+    setNewRowData({});
+  };
+
+  const getStorageKey = React.useCallback(() => {
+    if (data.length === 0) return "tableData";
+    const structure = Object.keys(data[0]).sort().join("_");
+    return `tableData_${structure}_${data.length}`;
+  }, [data]);
+
+  useEffect(() => {
+    const storageKey = getStorageKey();
+    const storedData = localStorage.getItem(storageKey);
+
+    if (!storedData) {
+      setTableData(data);
+      return;
+    }
+
+    try {
+      const parsedData = JSON.parse(storedData);
+
+      if (data.length > 0 && parsedData.length > 0) {
+        const storedKeys = Object.keys(parsedData[0]).sort().join(",");
+        const newKeys = Object.keys(data[0]).sort().join(",");
+        if (storedKeys !== newKeys) {
+          setTableData(data);
+          return;
+        }
+      }
+      setTableData(parsedData);
+    } catch (error) {
+      console.error("Error parsing stored data:", error);
+      setTableData(data);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const storageKey = getStorageKey();
+      const storedData = localStorage.getItem(storageKey);
+
+      if (!storedData) {
+        setTableData(data);
+        localStorage.setItem(storageKey, JSON.stringify(data));
+      } else {
+        try {
+          const parsedData = JSON.parse(storedData);
+          const storedKeys = Object.keys(parsedData[0]).sort().join(",");
+          const newKeys = Object.keys(data[0]).sort().join(",");
+
+          if (storedKeys !== newKeys) {
+            setTableData(data);
+            localStorage.setItem(storageKey, JSON.stringify(data));
+          }
+        } catch (error) {
+          console.error("Error handling data update:", error);
+          setTableData(data);
+          localStorage.setItem(storageKey, JSON.stringify(data));
+        }
+      }
+    }
+  }, [data, getStorageKey]);
+
+  useEffect(() => {
+    if (tableData.length > 0) {
+      const storageKey = getStorageKey();
+      localStorage.setItem(storageKey, JSON.stringify(tableData));
+    }
+  }, [tableData, getStorageKey]);
+
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleEditRow = (rowIndex: number, rowData: any) => {
+    setEditedRow(rowIndex);
+    setEditedValues(rowData);
+  };
+
+  const handleDeleteRow = (rowIndex: number) => {
+    const currentPage = table.getState().pagination.pageIndex;
+    const pageSize = table.getState().pagination.pageSize;
+    
+    setTableData((prevData) => {
+      const newData = prevData.filter((_, index) => index !== rowIndex);
+      
+      // Calculate if the current page would be empty after deletion
+      const rowsOnCurrentPage = newData.slice(
+        currentPage * pageSize,
+        (currentPage + 1) * pageSize
+      ).length;
+      console.log(currentPage);
+      
+      if (rowsOnCurrentPage === 0 && currentPage > 0) {
+        setTimeout(() => {
+          table.setPageIndex(currentPage - 1);
+        }, 0);
+      } else {
+    
+        setTimeout(() => {
+          table.setPageIndex(currentPage);
+        }, 0);
+      }
+      
+      return newData;
+    });
+  };
+  
+
+  useEffect(() => {
+    const storedData = localStorage.getItem("tableData");
+    if (storedData) {
+      setTableData(JSON.parse(storedData));
+    }
+  }, []);
+
+  useEffect(() => {
     const initialVisibility: VisibilityState = {};
     columns.forEach((column, index) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       initialVisibility[(column as any).accessorKey] = index < 8;
     });
     setColumnVisibility(initialVisibility);
   }, [columns]);
 
-  // Custom global filter function
   const globalFilterFn: GlobalFilterFn = (row, columnId, filterValue) => {
     const rowValue = row.original;
-
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const searchInObject = (obj: any, searchTerm: string): boolean => {
       if (typeof obj === "string") {
         return obj.toLowerCase().includes(searchTerm.toLowerCase());
@@ -276,7 +262,7 @@ export function Table({ data }: { data: any[] }) {
     return searchInObject(rowValue, filterValue);
   };
 
-  const table = useReactTable({
+const table = useReactTable({
     data,
     columns,
     onSortingChange: setSorting,
@@ -298,6 +284,11 @@ export function Table({ data }: { data: any[] }) {
       columnFilters,
     },
   });
+
+  const VisibleColumns = table
+  .getAllColumns()
+  .filter((column) => column.getIsVisible() && column.id !== "select")
+  .map((column) => column.id);
 
   const handleFilterAdd = (newFilter: FilterTag) => {
     const column = table.getColumn(newFilter.column);
@@ -380,42 +371,9 @@ export function Table({ data }: { data: any[] }) {
 
         <div className="flex space-x-4">
         <Filter
-          columns={table.getAllColumns().map((col) => col.id)}
+          columns={VisibleColumns}
           onFilterAdd={handleFilterAdd}
         />
-
-        {/* <Select
-          value={""}
-          onValueChange={(value) => {
-            const column = table.getColumn(value);
-            if (column) {
-              column.toggleVisibility(!column.getIsVisible());
-            }
-          }}
-        >
-          <SelectTrigger className="flex w-auto cursor-pointer items-center">
-            Columns
-          </SelectTrigger>
-
-          <SelectContent className="scrollbar-hide max-h-80 overflow-y-auto">
-            {table
-              .getAllColumns()
-              .filter((column) => column.getCanHide())
-              .map((column) => (
-                <SelectItem key={column.id} value={column.id}>
-                  <input
-                    type="checkbox"
-                    checked={column.getIsVisible()}
-                    onChange={() =>
-                      column.toggleVisibility(!column.getIsVisible())
-                    }
-                    className="mr-2 h-4 w-4 appearance-none rounded-sm border border-gray-300 checked:border-transparent checked:bg-transparent checked:after:block checked:after:text-center checked:after:text-black checked:after:content-['✔']"
-                  />
-                  {column.id.charAt(0).toUpperCase() + column.id.slice(1)}
-                </SelectItem>
-              ))}
-          </SelectContent>
-        </Select> */}
         </div>
       </div>
 
@@ -507,7 +465,7 @@ export function Table({ data }: { data: any[] }) {
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
-            {"<"}
+            <ChevronLeft />
           </Button>
           <Button
             variant="outline"
@@ -515,7 +473,7 @@ export function Table({ data }: { data: any[] }) {
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
-            {">"}
+            <ChevronRight />
           </Button>
         </div>
       </div>

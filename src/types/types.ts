@@ -49,6 +49,8 @@ export interface FilterTag {
   value: any;
 }
 
+export type FilterFn = (row: Row, columnId: string, filterValue: string) => boolean;
+
 export interface FilterTagProps {
   tag: FilterTag;
   onRemove: (filter: FilterTag) => void;

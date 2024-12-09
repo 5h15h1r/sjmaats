@@ -18,10 +18,6 @@ import { FilterInputProps, FilterTag } from "@/types/types";
 import { Filter as FilterIcon } from "lucide-react";
 import React, { useState } from "react";
 
-interface FilterDropdownProps {
-  columns: string[];
-  onFilterAdd: (newFilter: FilterTag) => void;
-}
 
 const FILTER_CONDITIONS = [
   "isEmpty",
@@ -34,10 +30,7 @@ const FILTER_CONDITIONS = [
   "textEndsWith",
 ];
 
-export const Filter: React.FC<FilterInputProps> = ({
-  columns,
-  onFilterAdd,
-}) => {
+export const Filter: React.FC<FilterInputProps> = ({ columns, onFilterAdd }) => {
   const [selectedColumn, setSelectedColumn] = useState<string | null>(null);
   const [selectedCondition, setSelectedCondition] = useState<string>("");
   const [inputValue, setInputValue] = useState<string>("");
@@ -56,9 +49,7 @@ export const Filter: React.FC<FilterInputProps> = ({
     }
   };
 
-  const shouldShowInput =
-    !selectedCondition ||
-    !["isEmpty", "isNotEmpty"].includes(selectedCondition);
+  const shouldShowInput = !selectedCondition || (!["isEmpty", "isNotEmpty"].includes(selectedCondition));
 
   return (
     <div className="">
@@ -74,7 +65,7 @@ export const Filter: React.FC<FilterInputProps> = ({
           <DropdownMenuSeparator />
 
           <div className="space-y-2">
-            <Select onValueChange={(value) => setSelectedColumn(value)}>
+            <Select  onValueChange={(value) => setSelectedColumn(value)}>
               <SelectTrigger>
                 <SelectValue placeholder="Select column" />
               </SelectTrigger>
@@ -87,10 +78,7 @@ export const Filter: React.FC<FilterInputProps> = ({
               </SelectContent>
             </Select>
 
-            <Select
-              value={selectedCondition}
-              onValueChange={(value) => setSelectedCondition(value)}
-            >
+            <Select value={selectedCondition} onValueChange={(value) => setSelectedCondition(value)}>
               <SelectTrigger>
                 <SelectValue placeholder="Select condition" />
               </SelectTrigger>
